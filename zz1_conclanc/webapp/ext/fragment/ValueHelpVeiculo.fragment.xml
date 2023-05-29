@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialogVeiculo"
+		title="Veículo"
+		items="{path: 'Veiculo>/results'}"
+		search=".onValueHelpVeiculoSearch"
+		confirm=".onValueHelpVeiculoClose"
+		cancel=".onValueHelpVeiculoClose">
+		<StandardListItem id="_IDGenStandardListItem56"
+			title="{Veiculo>Vehicle}"
+			description="{Veiculo>VehText}" />
+	</SelectDialog>
+</core:FragmentDefinition>

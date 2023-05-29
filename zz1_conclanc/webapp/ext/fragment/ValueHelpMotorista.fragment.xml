@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialogMotorista"
+		title="Motorista"
+		items="{path: 'Motorista>/results'}"
+		search=".onValueHelpMotoristaSearch"
+		confirm=".onValueHelpMotoristaClose"
+		cancel=".onValueHelpMotoristaClose">
+		<StandardListItem id="_IDGenStandardListItem59"
+			title="{Motorista>Drivercode}"
+			description="{Motorista>FirstName} {Motorista>LastName}" />
+	</SelectDialog>
+</core:FragmentDefinition>

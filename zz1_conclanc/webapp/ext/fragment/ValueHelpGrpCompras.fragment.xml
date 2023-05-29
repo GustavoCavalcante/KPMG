@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialogGrpCompras"
+		title="Grupo de Compras"
+		items="{path: 'GrpCompras>/results'}"
+		search=".onValueHelpGrpComprasSearch"
+		confirm=".onValueHelpGrpComprasClose"
+		cancel=".onValueHelpGrpComprasClose">
+		<StandardListItem id="_IDGenStandardListItem58"
+			title="{GrpCompras>Ekgrp}"
+			description="{GrpCompras>Eknam}" />
+	</SelectDialog>
+</core:FragmentDefinition>

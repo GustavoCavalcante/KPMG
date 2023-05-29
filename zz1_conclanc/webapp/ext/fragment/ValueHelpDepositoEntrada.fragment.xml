@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialogDepositoEntrada"
+		title="Depósito Entrada"
+		items="{path: 'Deposito>/results'}"
+		search=".onValueHelpDepositoEntradaSearch"
+		confirm=".onValueHelpDepositoEntradaClose"
+		cancel=".onValueHelpDepositoEntradaClose">
+		<StandardListItem id="_IDGenStandardListItem54"
+			title="{Deposito>Lgort}"
+			description="{Deposito>Lgobe}" />
+	</SelectDialog>
+</core:FragmentDefinition>

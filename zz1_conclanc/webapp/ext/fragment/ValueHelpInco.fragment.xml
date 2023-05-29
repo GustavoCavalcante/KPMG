@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialogInco"
+		title="Incoterms"
+		items="{path: 'Inco>/results'}"
+		search=".onValueHelpIncoSearch"
+		confirm=".onValueHelpIncoClose"
+		cancel=".onValueHelpIncoClose">
+		<StandardListItem id="_IDGenStandardListItem57"
+			title="{Inco>Inco1}"
+			description="{Inco>Bezei}" />
+	</SelectDialog>
+</core:FragmentDefinition>

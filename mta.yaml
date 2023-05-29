@@ -1,0 +1,93 @@
+_schema-version: "3.2"
+ID: zz1_conclanc
+description: Conciliador de Lançamento
+version: 0.0.1
+modules:
+- name: zz1_conclanc-dest-content
+  type: com.sap.application.content
+  requires:
+  - name: zz1_conclanc-destination-service
+    parameters:
+      content-target: true
+  - name: zz1_conclanc-repo-host
+    parameters:
+      service-key:
+        name: zz1_conclanc-repo-host-key
+  - name: zz1_conclanc-uaa
+    parameters:
+      service-key:
+        name: zz1_conclanc-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: zz1_conclanc_repo_host
+          ServiceInstanceName: zz1_conclanc-html5-srv
+          ServiceKeyName: zz1_conclanc-repo-host-key
+          sap.cloud.service: zz1_conclanc
+        - Authentication: OAuth2UserTokenExchange
+          Name: zz1_conclanc_uaa
+          ServiceInstanceName: zz1_conclanc-xsuaa-srv
+          ServiceKeyName: zz1_conclanc-uaa-key
+          sap.cloud.service: zz1_conclanc
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
+- name: zz1_conclanc-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: zz1_conclanc-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - brcomalezz1conclanc.zip
+      name: brcomalezz1conclanc
+      target-path: resources/
+- name: brcomalezz1conclanc
+  type: html5
+  path: zz1_conclanc
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: zz1_conclanc-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: zz1_conclanc-xsuaa-srv
+    service-plan: application
+- name: zz1_conclanc-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: zz1_conclanc-destination-service
+    service-plan: lite
+- name: zz1_conclanc-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: zz1_conclanc-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+        <edmx:Include Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4cpidev:443/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zui_s2p_conc_lanc_app" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZC_S2P_CONC_LANC_APPType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Pedido"/>
+                </Key>
+                <Property Name="continuarProcesso_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pedido" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document" sap:heading="" sap:quickinfo="Purchasing Document Number"/>
+                <Property Name="Remessa" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Delivery" sap:heading=""/>
+                <Property Name="Sm" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="SmText" Type="Edm.String" MaxLength="3" sap:label="" sap:value-list="fixed-values"/>
+                <Property Name="Transporte" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Bulk shipment no." sap:heading="" sap:quickinfo="TD shipment number"/>
+                <Property Name="Fatura" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Billing Document" sap:heading=""/>
+                <Property Name="Docnum" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Document Number" sap:heading=""/>
+                <Property Name="Nf" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="NF-e Number" sap:heading="" sap:quickinfo="Electronic Nota Fiscal Number"/>
+                <Property Name="Serie" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Series" sap:heading=""/>
+                <Property Name="PassoAtual" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="PassoAtualTexto" sap:label="" sap:value-list="fixed-values"/>
+                <Property Name="PassoAtualTexto" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:heading="" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="StatusTexto" sap:label="" sap:value-list="fixed-values"/>
+                <Property Name="StatusColor" Type="Edm.Byte" sap:label=""/>
+                <Property Name="StatusTexto" Type="Edm.String" MaxLength="14" sap:label=""/>
+                <Property Name="Parceiro" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Customer" sap:heading="" sap:quickinfo="Customer Number"/>
+                <Property Name="ExecMassa" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="ExecMassaText" Type="Edm.String" MaxLength="3" sap:label="" sap:value-list="fixed-values"/>
+                <Property Name="DataModif" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date" sap:heading=""/>
+                <Property Name="HoraModif" Type="Edm.Time" Precision="0" sap:label="Time" sap:heading=""/>
+                <Property Name="UserModif" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name" sap:heading=""/>
+            </EntityType>
+            <EntityType Name="ZC_S2P_CONC_LANC_EXECMASSType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Domname"/>
+                    <PropertyRef Name="As4local"/>
+                    <PropertyRef Name="Valpos"/>
+                    <PropertyRef Name="As4vers"/>
+                </Key>
+                <Property Name="Domname" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Domain name"/>
+                <Property Name="As4local" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Activation Status" sap:quickinfo="Activation State of Repository Object"/>
+                <Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Value key" sap:quickinfo="Domain value key"/>
+                <Property Name="As4vers" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Version" sap:quickinfo="Version of the entry (not used)"/>
+                <Property Name="DomvalueL" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="Text" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="DomvalueH" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Dom.upper limit" sap:quickinfo="Values for domains, upper limit"/>
+                <Property Name="Appval" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BelongsToApp" sap:quickinfo="DD: Defines whether value of appender belongs to append"/>
+            </EntityType>
+            <EntityType Name="ZC_S2P_CONC_LANC_PASSOType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Domname"/>
+                    <PropertyRef Name="As4local"/>
+                    <PropertyRef Name="Valpos"/>
+                    <PropertyRef Name="As4vers"/>
+                </Key>
+                <Property Name="Domname" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Domain name"/>
+                <Property Name="As4local" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Activation Status" sap:quickinfo="Activation State of Repository Object"/>
+                <Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Value key" sap:quickinfo="Domain value key"/>
+                <Property Name="As4vers" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Version" sap:quickinfo="Version of the entry (not used)"/>
+                <Property Name="DomvalueL" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="Text" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="DomvalueH" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Dom.upper limit" sap:quickinfo="Values for domains, upper limit"/>
+                <Property Name="Appval" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BelongsToApp" sap:quickinfo="DD: Defines whether value of appender belongs to append"/>
+            </EntityType>
+            <EntityType Name="ZC_S2P_CONC_LANC_SMType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Domname"/>
+                    <PropertyRef Name="As4local"/>
+                    <PropertyRef Name="Valpos"/>
+                    <PropertyRef Name="As4vers"/>
+                </Key>
+                <Property Name="Domname" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Domain name"/>
+                <Property Name="As4local" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Activation Status" sap:quickinfo="Activation State of Repository Object"/>
+                <Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Value key" sap:quickinfo="Domain value key"/>
+                <Property Name="As4vers" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Version" sap:quickinfo="Version of the entry (not used)"/>
+                <Property Name="DomvalueL" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="Text" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="DomvalueH" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Dom.upper limit" sap:quickinfo="Values for domains, upper limit"/>
+                <Property Name="Appval" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BelongsToApp" sap:quickinfo="DD: Defines whether value of appender belongs to append"/>
+            </EntityType>
+            <EntityType Name="ZC_S2P_CONC_LANC_STATUSType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Domname"/>
+                    <PropertyRef Name="As4local"/>
+                    <PropertyRef Name="Valpos"/>
+                    <PropertyRef Name="As4vers"/>
+                </Key>
+                <Property Name="Domname" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Domain name"/>
+                <Property Name="As4local" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Activation Status" sap:quickinfo="Activation State of Repository Object"/>
+                <Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Value key" sap:quickinfo="Domain value key"/>
+                <Property Name="As4vers" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Version" sap:quickinfo="Version of the entry (not used)"/>
+                <Property Name="DomvalueL" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="Text" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="DomvalueH" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Dom.upper limit" sap:quickinfo="Values for domains, upper limit"/>
+                <Property Name="Appval" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BelongsToApp" sap:quickinfo="DD: Defines whether value of appender belongs to append"/>
+            </EntityType>
+            <EntityType Name="SAP__Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CurrencyCode"/>
+                </Key>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO code"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Short text"/>
+                <Property Name="DecimalPlaces" Type="Edm.Byte" Nullable="false" sap:label="Decimals"/>
+            </EntityType>
+            <EntityType Name="SAP__UnitOfMeasure" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitCode"/>
+                </Key>
+                <Property Name="UnitCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Internal UoM" sap:semantics="unit-of-measure"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO code"/>
+                <Property Name="ExternalCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Commercial"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Measurement Unit Txt"/>
+                <Property Name="DecimalPlaces" Type="Edm.Int16" sap:label="Decimal Places"/>
+            </EntityType>
+            <ComplexType Name="DummyFunctionImportResult">
+                <Property Name="IsInvalid" Type="Edm.Boolean" sap:label="TRUE"/>
+            </ComplexType>
+            <EntityContainer Name="cds_zui_s2p_conc_lanc_app_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_S2P_CONC_LANC_APP" EntityType="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_APPType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_S2P_CONC_LANC_EXECMASS" EntityType="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_EXECMASSType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_S2P_CONC_LANC_PASSO" EntityType="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_PASSOType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_S2P_CONC_LANC_SM" EntityType="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_SMType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_S2P_CONC_LANC_STATUS" EntityType="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_STATUSType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__Currencies" EntityType="cds_zui_s2p_conc_lanc_app.SAP__Currency" sap:content-version="1"/>
+                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_zui_s2p_conc_lanc_app.SAP__UnitOfMeasure" sap:content-version="1"/>
+                <FunctionImport Name="continuarProcesso" ReturnType="cds_zui_s2p_conc_lanc_app.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_APPType" sap:applicable-path="continuarProcesso_ac">
+                    <Parameter Name="Pedido" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Purchasing Document"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_APPType/SmText" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="ZC_S2P_CONC_LANC_SM"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SmText"/>
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DomvalueL"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_APPType/PassoAtual" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="ZC_S2P_CONC_LANC_PASSO"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PassoAtual"/>
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DomvalueL"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_APPType/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="ZC_S2P_CONC_LANC_STATUS"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Status"/>
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DomvalueL"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.ZC_S2P_CONC_LANC_APPType/ExecMassaText" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="ZC_S2P_CONC_LANC_EXECMASS"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExecMassaText"/>
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DomvalueL"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.cds_zui_s2p_conc_lanc_app_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.cds_zui_s2p_conc_lanc_app_Entities/ZC_S2P_CONC_LANC_APP" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>continuarProcesso_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>continuarProcesso_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.cds_zui_s2p_conc_lanc_app_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+                <Annotation Term="SAP__CodeList.ExternalCode" Path="ExternalCode"/>
+            </Annotations>
+            <Annotations Target="cds_zui_s2p_conc_lanc_app.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.AlternateKeys">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="Key">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="Name" Path="ExternalCode"/>
+                                        <PropertyValue Property="Alias" String="ExternalCode"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://s4cpidev:443/sap/opu/odata/sap/ZUI_O2_S2P_CONC_LANC_APP/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4cpidev:443/sap/opu/odata/sap/ZUI_O2_S2P_CONC_LANC_APP/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
